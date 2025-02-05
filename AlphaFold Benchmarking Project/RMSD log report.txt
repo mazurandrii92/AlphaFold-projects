@@ -1,0 +1,94 @@
+PyMOL(TM) Molecular Graphics System, Version 3.0.0.
+ Copyright (c) Schrodinger, LLC.
+ All Rights Reserved.
+ 
+    Created by Warren L. DeLano, Ph.D. 
+ 
+    PyMOL is user-supported open-source software.  Although some versions
+    are freely available, PyMOL is not in the public domain.
+ 
+    If PyMOL is helpful in your work or study, then please volunteer 
+    support for our ongoing efforts to create open and affordable scientific
+    software by purchasing a PyMOL Maintenance and/or Support subscription.
+ 
+    More information can be found at "http://www.pymol.org".
+ 
+    Enter "help" for a list of commands.
+    Enter "help <command-name>" for information on a specific command.
+ 
+ Hit ESC anytime to toggle between text and graphics.
+ 
+ Detected OpenGL version 4.6. Shaders available.
+ Detected GLSL version 4.60.
+ OpenGL graphics engine:
+  GL_VENDOR:   NVIDIA Corporation
+  GL_RENDERER: NVIDIA GeForce RTX 3060/PCIe/SSE2
+  GL_VERSION:  4.6.0 NVIDIA 526.98
+ Detected 12 CPU cores.  Enabled multithreaded rendering.
+ 
+ Executive: Loading version 2.004000 session...
+ Session was saved with: viewport 1106, 552
+PyMOL>rms_cur # Will calculate RMSD for aligned structures
+Parsing-Error: missing required argument in function rms_cur : target
+PyMOL>rms_cur
+Parsing-Error: missing required argument in function rms_cur : mobile
+PyMOL>rms_cur DpaA_AlphaFold, DpaA_Experimental
+ExecutiveRMS-Error: Atom counts between selections don't match (2349 vs 2355)
+ Executive: Error -- no atoms left after refinement!
+PyMOL>align DpaA_AlphaFold, DpaA_Experimental
+ Match: read scoring matrix.
+ Match: assigning 307 x 299 pairwise scores.
+ MatchAlign: aligning residues (307 vs 299)...
+ MatchAlign: score 1580.000
+ ExecutiveAlign: 2349 atoms aligned.
+ ExecutiveRMS: 139 atoms rejected during cycle 1 (RMSD=1.23).
+ ExecutiveRMS: 110 atoms rejected during cycle 2 (RMSD=0.67).
+ ExecutiveRMS: 74 atoms rejected during cycle 3 (RMSD=0.52).
+ ExecutiveRMS: 38 atoms rejected during cycle 4 (RMSD=0.48).
+ ExecutiveRMS: 18 atoms rejected during cycle 5 (RMSD=0.47).
+ Executive: RMSD =    0.460 (1970 to 1970 atoms)
+PyMOL>rms_cur DpaA_AlphaFold and resi 1-100, DpaA_Experimental and resi 1-100
+ Executive: RMSD =    0.968 (802 to 802 atoms)
+PyMOL>show cartoon, DpaA_AlphaFold
+PyMOL>show cartoon, DpaA_Experimental
+PyMOL>color cyan, DpaA_AlphaFold
+ Executive: Colored 2424 atoms and 1 object.
+PyMOL>color yellow, DpaA_Experimental
+ Executive: Colored 2355 atoms and 1 object.
+PyMOL>select rejected_atoms, byres (DpaA_AlphaFold within 5 of DpaA_Experimental) and not (DpaA_AlphaFold align DpaA_Experimental)
+ Error: Invalid selection name "align".
+byres ( DpaA_AlphaFold within 5 of DpaA_Experimental ) and not ( DpaA_AlphaFold align DpaA_Experimental )<--
+PyMOL>show spheres, rejected_atoms
+ Error: Invalid selection name "rejected_atoms".
+rejected_atoms<--
+PyMOL>select region_1_100, DpaA_AlphaFold and resi 1-100 or DpaA_Experimental and resi 1-100
+ Selector: selection "region_1_100" defined with 1619 atoms.
+PyMOL>zoom region_1_100
+PyMOL>color cyan, DpaA_AlphaFold and resi 1-100
+ Executive: Colored 817 atoms.
+PyMOL>color yellow, DpaA_Experimental and resi 1-100
+ Executive: Colored 802 atoms.
+PyMOL>show sticks, region_1_100
+PyMOL>select region_1_100, DpaA_AlphaFold and resi 1-100 or DpaA_Experimental and resi 1-100
+ Selector: selection "region_1_100" defined with 1619 atoms.
+PyMOL>zoom region_1_100
+PyMOL>color cyan, DpaA_AlphaFold and resi 1-100
+ Executive: Colored 817 atoms.
+PyMOL>color yellow, DpaA_Experimental and resi 1-100
+ Executive: Colored 802 atoms.
+PyMOL>show sticks, region_1_100
+PyMOL>select region_1_100, DpaA_AlphaFold and resi 1-100 or DpaA_Experimental and resi 1-100
+ Selector: selection "region_1_100" defined with 1619 atoms.
+PyMOL>zoom region_1_100
+PyMOL>color cyan, DpaA_AlphaFold and resi 1-100
+ Executive: Colored 817 atoms.
+PyMOL>color yellow, DpaA_Experimental and resi 1-100
+ Executive: Colored 802 atoms.
+PyMOL>show sticks, region_1_100
+PyMOL>log_open rmsd_report.log
+PyMOL>rms_cur DpaA_AlphaFold, DpaA_Experimental
+ExecutiveRMS-Error: Atom counts between selections don't match (2349 vs 2355)
+ Executive: Error -- no atoms left after refinement!
+PyMOL>rms_cur DpaA_AlphaFold and resi 1-100, DpaA_Experimental and resi 1-100
+ Executive: RMSD =    0.968 (802 to 802 atoms)
+PyMOL>log_close
